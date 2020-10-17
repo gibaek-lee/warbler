@@ -1,10 +1,10 @@
-import { authService, firebaseInstance } from "fbase";
-import React, { useState } from "react";
+import { authService, firebaseInstance } from "fbase"
+import React, { useState } from "react"
 
 const Auth = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [newAccount, setNewAccount] = useState(true)
   const [error, setError] = useState("")
   const onChange = (event) => {
     const {target: {name, value}} = event
@@ -15,10 +15,11 @@ const Auth = () => {
       setPassword(value)
     }
   }
+  
   const onSubmit = async (event) => {
     event.preventDefault()
     try {
-      let data;
+      let data
       if(newAccount) {
         data = await authService.createUserWithEmailAndPassword(email, password)
       } else {
@@ -28,7 +29,9 @@ const Auth = () => {
       setError(error.message)
     }
   }
+
   const toggleAccount = () => setNewAccount(prev => !prev)
+
   const onSocialClick = async (event) => {
     const {
       target:{name}
@@ -70,7 +73,7 @@ const Auth = () => {
         <button onClick={onSocialClick} name="github">Continue with Github</button>
       </div>
     </div>
-  );
+  )
 }
 
 export default Auth
