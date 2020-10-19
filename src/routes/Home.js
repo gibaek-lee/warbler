@@ -1,5 +1,5 @@
 import { dbService } from "fbase"
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import Nweet from "components/Nweet"
 
 const Home = ({ userObj }) => {
