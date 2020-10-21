@@ -7,13 +7,20 @@ const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([])
 
   useEffect(() => {
-    dbService.collection("nweets").onSnapshot(snapshot => {
-      const nweetArray = snapshot.docs.map(doc => ({
+    let isMounted = true
+
+    dbService.collection("nweets").onSnapshot(async snapshot => {
+      const nweetArray = await snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }))
-      setNweets(nweetArray)
+      
+      if(isMounted) {
+        setNweets(nweetArray)
+      }
     })
+
+    return () => isMounted = false
   }, [])
 
   const onSubmit = async (event) => {
