@@ -5,6 +5,7 @@ import Nweet from "components/Nweet"
 const Home = ({ userObj }) => {
   const [nweet, setNweet] = useState("")
   const [nweets, setNweets] = useState([])
+  const [attachment, setAttachment] = useState(null)
 
   useEffect(() => {
     let isMounted = true
@@ -35,9 +36,33 @@ const Home = ({ userObj }) => {
 
   const onChange = (event) => {
     const {
-      target:{value}
+      target: {value}
     } = event
     setNweet(value)
+  }
+
+  const onFileChange = (event) => {
+    const {
+      target: {files}
+    } = event
+    const theFile = files[0]
+    const reader = new FileReader()
+
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: {result}
+      } = finishedEvent
+      setAttachment(result)
+    }
+
+    if(theFile) { // Choose File 버튼 눌렀다가 그냥 취소한 경우 필터링
+      reader.readAsDataURL(theFile)
+    }
+  }
+  
+  const onClearAttachment = (event) => {
+    setAttachment(null)
+    document.querySelector('input[type=file]').value = '' // Choose File 버튼 눌렀다가 그냥 취소한 경우 value 초기화
   }
 
   return (
@@ -51,9 +76,20 @@ const Home = ({ userObj }) => {
           value={nweet}
         />
         <input 
+          type="file" 
+          accept="image/*" 
+          onChange={onFileChange} 
+        />
+        <input 
           type="submit" 
           value="Nweet"
         />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={onClearAttachment}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {nweets.map(nweet => (
