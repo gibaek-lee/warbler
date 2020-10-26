@@ -11,7 +11,12 @@ function App() {
 
     authService.onAuthStateChanged(user => {
       if(isMounted) {
-        setUserObj(user || null)
+        // setUserObj(user || null)
+        setUserObj(user ? {
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args)
+        } : null)
         setInit(true)  
       }
     })
@@ -19,9 +24,26 @@ function App() {
     return () => isMounted = false
   }, [])
 
+  const refreshUser = () => {
+    const user = authService.currentUser
+    // setUserObj(Object.assign({}, user))
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args)
+    })
+  }
+
   return (
     <>
-      {init ? <AppRouter userObj={userObj} /> : "Initializing...."}
+      {init ? (
+        <AppRouter 
+          userObj={userObj} 
+          refreshUser={refreshUser} 
+        /> 
+      ) : (
+        "Initializing...."
+      )}
       <footer>&copy Nwitter {new Date().getFullYear()}</footer>
     </>
   )
