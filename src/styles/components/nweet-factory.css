@@ -1,0 +1,77 @@
+.nweet-factory-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.nweet-factory-form__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.nweet-factory-form__input-text {
+  flex-grow: 1;
+  height: 40px;
+  padding: 0px 20px;
+  color: white;
+  border: 1px solid #04aaff;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.nweet-factory-form__submit {
+  position: absolute;
+  right: 0;
+  background-color: #04aaff;
+  height: 40px;
+  width: 40px;
+  padding: 10px 0px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
+
+.nweet-factory-form__file-label {
+  color: #04aaff;
+  cursor: pointer;   
+}  
+
+.nweet-factory-form__file-label > span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.nweet-factory-form__file-input {
+  opacity: 0;
+}
+
+.nweet-factory-form__attachment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+}
+
+.nweet-factory-form__attachment-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  
+}
+
+.nweet-factory-form__attachment-clear {
+  color: #04aaff;
+  cursor: pointer;
+  text-align: center;  
+}
+
+.nweet-factory-form__attachment-clear > span {
+  margin-right: 10px;
+  font-size: 12px;
+}
