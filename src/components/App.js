@@ -6,7 +6,7 @@ function App() {
   const [init, setInit] = useState(false)
   const [userObj, setUserObj] = useState(null)
 
-  useEffect(() => { console.log('@@@@ onAuthStateChanged')
+  useEffect(() => {
     let isMounted = true
 
     authService.onAuthStateChanged(user => {
