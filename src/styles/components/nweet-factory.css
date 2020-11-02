@@ -38,6 +38,10 @@
   color: white;
 }
 
+.nweet-factory-form__submit:hover {
+  cursor: pointer;
+}
+
 .nweet-factory-form__file-label {
   color: #04aaff;
   cursor: pointer;   

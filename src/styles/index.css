@@ -4,6 +4,7 @@
 @import "./components/nweet.css";
 @import "./components/navigation.css";
 @import "./components/router.css";
+@import "./components/app.css";
 @import "./routes/auth.css";
 @import "./routes/profile.css";
 @import "./routes/home.css";
@@ -22,6 +23,9 @@ body {
 
 footer {
   text-align: center;
+  padding-top: 20px;
+  border-top: solid 1px #fff;
+  margin-top: 20px;
 }
 
 form {

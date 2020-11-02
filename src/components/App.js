@@ -11,13 +11,12 @@ function App() {
 
     authService.onAuthStateChanged(user => {
       if(isMounted) {
-        // setUserObj(user || null)
         setUserObj(user ? {
           displayName: user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args)
         } : null)
-        setInit(true)  
+        setInit(true)
       }
     })
 
@@ -42,7 +41,7 @@ function App() {
           refreshUser={refreshUser} 
         /> 
       ) : (
-        "Initializing...."
+        <div className="app__init">Initializing...</div>
       )}
       <footer>&copy Nwitter {new Date().getFullYear()}</footer>
     </>

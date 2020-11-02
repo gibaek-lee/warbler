@@ -1,10 +1,12 @@
 import { authService, dbService } from "fbase"
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import Nweet from "components/Nweet"
 
 const Profile = ({ userObj, refreshUser }) => {
   const history = useHistory()
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName)
+  const [myNweets, setMyNweets] = useState([])
 
   const onLogOutClick = () => {
     authService.signOut()
@@ -36,11 +38,25 @@ const Profile = ({ userObj, refreshUser }) => {
                         .where("creatorId", "==", userObj.uid)
                         .orderBy("createdAt", "desc")
                         .get()
-    console.log(nweets.docs.map(doc => doc.data()))
+
+    const myNweetArray = nweets.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }))
+
+    setMyNweets(myNweetArray)
   }
 
   useEffect(() => {
-    getMyNweets()
+    let isMounted = true
+
+    dbService.collection("nweets").onSnapshot(() => { 
+      if(isMounted) {
+        getMyNweets()
+      }
+    })
+
+    return () => isMounted = false
   }, [])
 
   return (
@@ -63,6 +79,15 @@ const Profile = ({ userObj, refreshUser }) => {
           value="Update Profile" 
         />
       </form>
+      <div className="profile__my-nweets">
+        {myNweets.map(nweet => (
+          <Nweet 
+            key={nweet.id} 
+            nweetObj={nweet} 
+            isOwner={nweet.creatorId === userObj.uid} 
+          />
+        ))}
+      </div>
       <span 
         className="profile-form__cancel form-btn cancel-btn" 
         onClick={onLogOutClick}

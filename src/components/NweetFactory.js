@@ -89,7 +89,7 @@ const NweetFactory = ({ userObj }) => {
       </div>
       <label 
         className="nweet-factory-form__file-label"
-        for="attach-file"
+        htmlFor="attach-file"
       >
         <span>Add Photos</span>
         <FontAwesomeIcon icon={faPlus} />
