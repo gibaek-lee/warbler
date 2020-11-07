@@ -1,6 +1,18 @@
+.profile-edit-button {
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid #04aaff;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.profile-edit-button:hover {
+  cursor: pointer;
+}
+
 .profile-form {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
   padding-bottom: 30px;
+  margin-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,7 +23,22 @@
 }
 
 .profile__my-nweets {
+  border-top: 1px solid #04aaff;
   margin-top: 10px;
+  padding-top: 10px;
+}
+
+.profile__my-nweets > h1 {
+  text-align: center;
+  color: #04aaff
+}
+
+.profile__my-nweets-contents {
+  margin-top: 30px;
+}
+
+.profile__my-nweets-loading {
+  text-align: center;
 }
 
 .profile-form__cancel {

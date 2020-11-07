@@ -13,9 +13,9 @@ const NweetFactory = ({ userObj }) => {
     }
 
     event.preventDefault()
-    let attachmentUrl = ""
 
-    if(attachment !== null) {
+    let attachmentUrl = ""
+    if(attachment) {
       attachmentUrl =  await getAttachmentUrl(userObj, attachment)
     }
 
@@ -53,7 +53,7 @@ const NweetFactory = ({ userObj }) => {
           value={nweet}
         />
         <input 
-          className="nweet-factory-form__submit"
+          className="nweet-factory-form__submit brand-bg-color"
           type="submit" 
           value="&rarr;"
         />

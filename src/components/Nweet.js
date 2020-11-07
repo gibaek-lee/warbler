@@ -51,13 +51,13 @@ const Nweet = ({nweetObj, isOwner}) => {
               onChange={onChange}
             />
             <input 
-              className="nweet-form--submit form-btn"
+              className="nweet-form--submit form-btn brand-bg-color"
               type="submit" 
               value="Update Nweet" 
             />
           </form>
           <span 
-            className="nweet-button--cancel form-btn cancel-btn"
+            className="nweet-button--cancel form-btn brand-bg-color cancel-btn"
             onClick={toggleEditing}
           >Cancel</span>
         </>
@@ -80,8 +80,8 @@ const Nweet = ({nweetObj, isOwner}) => {
           <h4>{nweetObj.text}</h4>
           {isOwner && (
             <>
-              <div className="nweet-me">
-                <span>hover me</span>
+              <div className="nweet-me brand-bg-color">
+                <span>Edit</span>
               </div>
               <div className="nweet-actions">
                 <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>

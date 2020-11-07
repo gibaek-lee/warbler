@@ -1,0 +1,51 @@
+.file-module {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-module-label {
+  cursor: pointer;   
+}  
+
+.file-module-label > span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.file-module-input {
+  opacity: 0;
+  height: 0;
+}
+
+.file-module__attachment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  align-items: center;
+  margin-top: 10px;
+}
+
+.file-module__attachment-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  
+}
+
+.file-module__attachment-clear {
+  color: #04aaff;
+  cursor: pointer;
+  text-align: center;  
+  margin-top: 10px;
+}
+
+.file-module__attachment-clear > svg {
+  vertical-align: bottom;
+}
+
+.file-module__attachment-clear > span {
+  margin-right: 10px;
+  font-size: 12px;
+}

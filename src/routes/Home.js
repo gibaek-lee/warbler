@@ -9,6 +9,7 @@ const Home = ({ userObj }) => {
   useEffect(() => {
     let isMounted = true
 
+    //[TODO] 로그아웃 후 계속 스냅샷이 돌다가 파이어스토어 규칙(유저 존재)와 부딪혀 에러 발생한다.
     dbService.collection("nweets").onSnapshot(async snapshot => {
       const nweetArray = await snapshot.docs.map(doc => ({
         id: doc.id,

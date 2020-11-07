@@ -28,25 +28,25 @@ const FileModule = ({attachment, setAttachment}) => {
   }
 
   return (
-    <div className="nweet-factory-form__file">
+    <div className="file-module">
       <label 
-        className="nweet-factory-form__file-label"
+        className="file-module-label brand-font-color"
         htmlFor="attach-file"
       >
         <span>Add Photos</span>
         <FontAwesomeIcon icon={faPlus} />
       </label>
       <input
-        className="nweet-factory-form__file-input"
+        className="file-module-input"
         id="attach-file" 
         type="file"
         accept="image/*" 
         onChange={onFileChange} 
       />
       {attachment && (
-        <div className="nweet-factory-form__attachment">
+        <div className="file-module__attachment">
           <img
-            className="nweet-factory-form__attachment-image"
+            className="file-module__attachment-image"
             style={{backgroundImage: attachment}}
             src={attachment} 
             width="50px" 
@@ -54,7 +54,7 @@ const FileModule = ({attachment, setAttachment}) => {
             alt="upload attachment"
           />
           <div 
-            className="nweet-factory-form__attachment-clear"
+            className="file-module__attachment-clear"
             onClick={onClearAttachment}
           >
             <span>Remove</span>

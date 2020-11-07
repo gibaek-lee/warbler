@@ -5,6 +5,7 @@
 @import "./components/navigation.css";
 @import "./components/router.css";
 @import "./components/app.css";
+@import "./components/file-module.css";
 @import "./routes/auth.css";
 @import "./routes/profile.css";
 @import "./routes/home.css";
@@ -24,7 +25,6 @@ body {
 footer {
   text-align: center;
   padding-top: 20px;
-  border-top: solid 1px #fff;
   margin-top: 20px;
 }
 
@@ -77,11 +77,18 @@ a {
   text-align: center;
   color: white;
   border-radius: 20px;
-  background-color: #04aaff;
   cursor: pointer;
 }
 
 .cancel-btn {
   cursor: pointer;
   background-color: tomato;
+}
+
+.brand-font-color {
+  color: #04aaff;
+}
+
+.brand-bg-color {
+  background-color: #04aaff;
 }

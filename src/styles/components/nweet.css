@@ -3,7 +3,7 @@
   background-color: white;
   width: 100%;
   max-width: 320px;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   position: relative;
   display: flex;
@@ -24,12 +24,12 @@
 }
 
 .nweet img, svg {
-  margin-right: 10px;
   border-radius: 50%;
 }
 
 .nweet h4 {
   font-size: 14px;
+  margin-left: 10px;
 }
 
 .nweet-form--submit {
@@ -42,15 +42,15 @@
   display: block;
   position: absolute;
   right: 10px;
-  top: 10px;
-  margin-right: 10px;;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
 }
 
 .nweet-actions {
   display: none;
   position: absolute;
   right: 10px;
-  top: 10px;
 }
 
 .nweet-actions > span {

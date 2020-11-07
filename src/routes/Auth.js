@@ -34,12 +34,12 @@ const Auth = () => {
           className="auth__social-google"
           name="google"
           onClick={onSocialClick}
-        >Continue with Google<FontAwesomeIcon icon={faGoogle} /></button>
+        >Continue with Google <FontAwesomeIcon icon={faGoogle} /></button>
         <button 
           className="auth__social-github"
           name="github"
           onClick={onSocialClick}
-        >Continue with Github<FontAwesomeIcon icon={faGithub} /></button>
+        >Continue with Github <FontAwesomeIcon icon={faGithub} /></button>
       </div>
     </div>
   )

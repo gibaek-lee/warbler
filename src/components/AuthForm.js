@@ -66,7 +66,7 @@ const AuthForm = () => {
         {error && <span className="auth-form__error">{error}</span>}
       </form>
       <span 
-        className="auth-switch"
+        className="auth-switch brand-font-color"
         onClick={toggleAccount}
       >{newAccount ? "Sign in" : "Create Account "}</span>
     </>

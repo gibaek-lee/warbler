@@ -18,6 +18,7 @@ const Navigation = ({ userObj }) => {
               color={"#04AAFF"}
               size="2x" 
             />
+            <span className="navigation__list--link-home brand-font-color">Home</span>
           </Link>
         </li>
         <li>
@@ -25,12 +26,16 @@ const Navigation = ({ userObj }) => {
             to="/profile"
             className="navigation__list--link"
           >
-            <FontAwesomeIcon
-              icon={faUser}
-              color={"#04AAFF"}
-              size="2x"
-            />
-            <span className="navigation__list--link-profile">{
+            {userObj.photoURL ? (
+              <img src={userObj.photoURL} width="28" height="28" alt="profile image"/>
+            ) : (
+              <FontAwesomeIcon
+                icon={faUser}
+                color={"#04AAFF"}
+                size="2x"
+              />
+            )}
+            <span className="navigation__list--link-profile brand-font-color">{
               userObj.displayName 
               ? `${userObj.displayName}의 Profile` 
               : 'Profile'
