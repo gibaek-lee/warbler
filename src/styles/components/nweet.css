@@ -1,0 +1,62 @@
+.nweet {
+  margin-bottom: 20px;
+  background-color: white;
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.8); 
+}
+
+.nweet.mode-edit {
+  flex-direction: column;
+}
+
+.nweet:hover .nweet-me {
+  display: none;
+}
+
+.nweet:hover .nweet-actions {
+  display: block;
+}
+
+.nweet img, svg {
+  border-radius: 50%;
+}
+
+.nweet h4 {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.nweet-form--submit {
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.nweet-me {
+  display: block;
+  position: absolute;
+  right: 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+.nweet-actions {
+  display: none;
+  position: absolute;
+  right: 10px;
+}
+
+.nweet-actions > span {
+  cursor: pointer;  
+}
+
+.nweet-actions > span:first-of-type {
+  margin-right: 10px;
+}

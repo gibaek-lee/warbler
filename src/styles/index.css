@@ -1,0 +1,94 @@
+@import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
+@import "./components/auth-form.css";
+@import "./components/nweet-factory.css";
+@import "./components/nweet.css";
+@import "./components/navigation.css";
+@import "./components/router.css";
+@import "./components/app.css";
+@import "./components/file-module.css";
+@import "./routes/auth.css";
+@import "./routes/profile.css";
+@import "./routes/home.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+button {
+  background-color: white;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.form-btn {
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  cursor: pointer;
+  background-color: tomato;
+}
+
+.brand-font-color {
+  color: #04aaff;
+}
+
+.brand-bg-color {
+  background-color: #04aaff;
+}

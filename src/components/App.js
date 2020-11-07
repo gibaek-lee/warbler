@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AppRouter from 'components/Router'
 import { authService } from 'fbase'
+import defaultUser from 'user'
 
 function App() {
   const [init, setInit] = useState(false)
@@ -11,24 +12,29 @@ function App() {
 
     authService.onAuthStateChanged(user => {
       if(isMounted) {
-        // setUserObj(user || null)
         setUserObj(user ? {
-          displayName: user.displayName,
+          displayName: user.displayName || defaultUser.displayName,
+          photoURL: user.photoURL || defaultUser.photoURL,
           uid: user.uid,
-          updateProfile: (args) => user.updateProfile(args)
+          updateProfile: (args) => {
+            user.updateProfile(args)
+          }
         } : null)
-        setInit(true)  
+        setInit(true)
       }
     })
 
     return () => isMounted = false
   }, [])
 
+
+  //[TODO] profile update 할 때 두번 업데이트 서밋해야 변경사항 실시간 감지한다.
   const refreshUser = () => {
     const user = authService.currentUser
-    // setUserObj(Object.assign({}, user))
+
     setUserObj({
       displayName: user.displayName,
+      photoURL: user.photoURL,
       uid: user.uid,
       updateProfile: (args) => user.updateProfile(args)
     })
@@ -42,9 +48,9 @@ function App() {
           refreshUser={refreshUser} 
         /> 
       ) : (
-        "Initializing...."
+        <div className="app__init">Initializing...</div>
       )}
-      <footer>&copy Nwitter {new Date().getFullYear()}</footer>
+      <footer className="brand-font-color">&copy Nwitter {new Date().getFullYear()}</footer>
     </>
   )
 }

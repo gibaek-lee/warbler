@@ -1,5 +1,8 @@
 import { dbService, storageService } from "fbase"
 import React, { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 const Nweet = ({nweetObj, isOwner}) => {
   const [editing, setEditing] = useState(false)
@@ -30,35 +33,64 @@ const Nweet = ({nweetObj, isOwner}) => {
   }
 
   return (
-    <div>
+    <div 
+      className={`nweet ${editing ? 'mode-edit' : ''}`}
+    >
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
-            <input 
+          <form 
+            className="nweet-form container"
+            onSubmit={onSubmit}
+          >
+            <input
+              className="nweet-form__input form-input"
               type="text" 
               placeholder="Edit yout nweet" 
               value={newNweet} 
               required
               onChange={onChange}
             />
-            <input type="submit" value="Update Nweet" />
+            <input 
+              className="nweet-form--submit form-btn brand-bg-color"
+              type="submit" 
+              value="Update Nweet" 
+            />
           </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          <span 
+            className="nweet-button--cancel form-btn brand-bg-color cancel-btn"
+            onClick={toggleEditing}
+          >Cancel</span>
         </>
       ) : (
         <>
-          <h4>{nweetObj.text}</h4>
-          {nweetObj.attachmentUrl && (
-            <img src={nweetObj.attachmentUrl} width="50px" height="50px" alt="user attachment"/>
+          {nweetObj.attachmentUrl ? (
+            <img 
+              src={nweetObj.attachmentUrl} 
+              width="28" 
+              height="28" 
+              alt="user attachment"
+            />
+          ) : (
+            <FontAwesomeIcon 
+              icon={faTwitter}
+              color={"#04AAFF"} 
+              size="2x"
+            />
           )}
+          <h4>{nweetObj.text}</h4>
           {isOwner && (
             <>
-              <button onClick={onDeleteCilck}>Delete Nweet</button>
-              <button onClick={toggleEditing}>Edit Nweet</button>
+              <div className="nweet-me brand-bg-color">
+                <span>Edit</span>
+              </div>
+              <div className="nweet-actions">
+                <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>
+                <span onClick={toggleEditing}><FontAwesomeIcon icon={faPencilAlt} /></span>
+              </div>
             </>
           )}
         </>
-      )} 
+      )}
     </div>
   )
 }
