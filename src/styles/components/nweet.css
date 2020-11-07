@@ -3,26 +3,21 @@
   background-color: white;
   width: 100%;
   max-width: 320px;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   color: rgba(0, 0, 0, 0.8); 
+}
+
+.nweet img, svg {
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .nweet h4 {
   font-size: 14px;
-}
-
-.nweet img {
-  right: -10px;
-  top: 20px;
-  position: absolute;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
 }
 
 .nweet-form--submit {

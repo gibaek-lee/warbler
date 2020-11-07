@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import { dbService, storageService } from "fbase"
 import { v4 as uuidv4 } from "uuid"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons"
+import FileModule from "./FileModule"
 
 const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("")
@@ -43,30 +42,6 @@ const NweetFactory = ({ userObj }) => {
     setNweet(value)
   }
 
-  const onFileChange = (event) => {
-    const {
-      target: {files}
-    } = event
-    const theFile = files[0]
-    const reader = new FileReader()
-
-    reader.onloadend = (finishedEvent) => {
-      const {
-        currentTarget: {result}
-      } = finishedEvent
-      setAttachment(result)
-    }
-
-    if(theFile) { // Choose File 버튼 눌렀다가 그냥 취소한 경우 필터링
-      reader.readAsDataURL(theFile)
-    }
-  }
-  
-  const onClearAttachment = (event) => {
-    setAttachment("")
-    document.querySelector('input[type=file]').value = '' // Choose File 버튼 눌렀다가 그냥 취소한 경우 value 초기화
-  }
-
   return (
     <form 
       className="nweet-factory-form"
@@ -87,39 +62,10 @@ const NweetFactory = ({ userObj }) => {
           value="&rarr;"
         />
       </div>
-      <label 
-        className="nweet-factory-form__file-label"
-        htmlFor="attach-file"
-      >
-        <span>Add Photos</span>
-        <FontAwesomeIcon icon={faPlus} />
-      </label>
-      <input
-        className="nweet-factory-form__file-input"
-        id="attach-file" 
-        type="file"
-        accept="image/*" 
-        onChange={onFileChange} 
+      <FileModule 
+        attachment={attachment}
+        setAttachment={setAttachment}
       />
-      {attachment && (
-        <div className="nweet-factory-form__attachment">
-          <img
-            className="nweet-factory-form__attachment-image"
-            style={{backgroundImage: attachment}}
-            src={attachment} 
-            width="50px" 
-            height="50px" 
-            alt="upload attachment"
-          />
-          <div 
-            className="nweet-factory-form__attachment-clear"
-            onClick={onClearAttachment}
-          >
-            <span>Remove</span>
-            <FontAwesomeIcon icon={faTimes} />
-          </div>
-        </div>
-      )}
     </form>
   )
 }

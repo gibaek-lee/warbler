@@ -2,6 +2,7 @@ import { dbService, storageService } from "fbase"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 const Nweet = ({nweetObj, isOwner}) => {
   const [editing, setEditing] = useState(false)
@@ -60,15 +61,21 @@ const Nweet = ({nweetObj, isOwner}) => {
         </>
       ) : (
         <>
-          <h4>{nweetObj.text}</h4>
-          {nweetObj.attachmentUrl && (
+          {nweetObj.attachmentUrl ? (
             <img 
               src={nweetObj.attachmentUrl} 
-              width="50px" 
-              height="50px" 
+              width="28" 
+              height="28" 
               alt="user attachment"
             />
+          ) : (
+            <FontAwesomeIcon 
+              icon={faTwitter}
+              color={"#04AAFF"} 
+              size="2x"
+            />
           )}
+          <h4>{nweetObj.text}</h4>
           {isOwner && (
             <div className="nweet-actions">
               <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>

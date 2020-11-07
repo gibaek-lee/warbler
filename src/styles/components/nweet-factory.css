@@ -42,6 +42,13 @@
   cursor: pointer;
 }
 
+.nweet-factory-form__file {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .nweet-factory-form__file-label {
   color: #04aaff;
   cursor: pointer;   
@@ -60,6 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;   
+  align-items: center;
 }
 
 .nweet-factory-form__attachment-img {
@@ -73,6 +81,11 @@
   color: #04aaff;
   cursor: pointer;
   text-align: center;  
+  margin-top: 10px;
+}
+
+.nweet-factory-form__attachment-clear > svg {
+  vertical-align: bottom;
 }
 
 .nweet-factory-form__attachment-clear > span {
