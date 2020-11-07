@@ -20,6 +20,7 @@ function App() {
             user.updateProfile(args)
           }
         } : null)
+        
         setInit(true)
       }
     })
