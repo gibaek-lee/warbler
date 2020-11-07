@@ -33,7 +33,9 @@ const Nweet = ({nweetObj, isOwner}) => {
   }
 
   return (
-    <div className="nweet">
+    <div 
+      className={`nweet ${editing ? 'mode-edit' : ''}`}
+    >
       {editing ? (
         <>
           <form 
@@ -77,10 +79,15 @@ const Nweet = ({nweetObj, isOwner}) => {
           )}
           <h4>{nweetObj.text}</h4>
           {isOwner && (
-            <div className="nweet-actions">
-              <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>
-              <span onClick={toggleEditing}><FontAwesomeIcon icon={faPencilAlt} /></span>
-            </div>
+            <>
+              <div className="nweet-me">
+                <span>hover me</span>
+              </div>
+              <div className="nweet-actions">
+                <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>
+                <span onClick={toggleEditing}><FontAwesomeIcon icon={faPencilAlt} /></span>
+              </div>
+            </>
           )}
         </>
       )}

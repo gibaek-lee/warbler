@@ -11,6 +11,18 @@
   color: rgba(0, 0, 0, 0.8); 
 }
 
+.nweet.mode-edit {
+  flex-direction: column;
+}
+
+.nweet:hover .nweet-me {
+  display: none;
+}
+
+.nweet:hover .nweet-actions {
+  display: block;
+}
+
 .nweet img, svg {
   margin-right: 10px;
   border-radius: 50%;
@@ -26,10 +38,19 @@
   margin-bottom: 5px;
 }
 
-.nweet-actions {
+.nweet-me {
+  display: block;
   position: absolute;
   right: 10px;
-  top: 10px;  
+  top: 10px;
+  margin-right: 10px;;
+}
+
+.nweet-actions {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .nweet-actions > span {

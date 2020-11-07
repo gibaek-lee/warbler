@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { dbService, storageService } from "fbase"
-import { v4 as uuidv4 } from "uuid"
+import { dbService } from "fbase"
+import { getAttachmentUrl } from "../utils/fbase"
 import FileModule from "./FileModule"
 
 const NweetFactory = ({ userObj }) => {
@@ -16,11 +16,7 @@ const NweetFactory = ({ userObj }) => {
     let attachmentUrl = ""
 
     if(attachment !== null) {
-      const attachmentRef = storageService
-                            .ref()
-                            .child(`${userObj.uid}/${uuidv4()}`)
-      const response = await attachmentRef.putString(attachment, "data_url")
-      attachmentUrl =  await response.ref.getDownloadURL()
+      attachmentUrl =  await getAttachmentUrl(userObj, attachment)
     }
 
     const nweetObj = {
