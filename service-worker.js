@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/warble/precache-manifest.44ae7a3cbf066e76cec7b5e52405f877.js"
+  "/warble/precache-manifest.b50eecc4ddce190419f9e6be3b3cf883.js"
 );
 
 self.addEventListener('message', (event) => {
