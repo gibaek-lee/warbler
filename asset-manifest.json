@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/warble/static/css/main.9b3b33bb.chunk.css",
-    "main.js": "/warble/static/js/main.7f3a7abd.chunk.js",
-    "main.js.map": "/warble/static/js/main.7f3a7abd.chunk.js.map",
+    "main.css": "/warble/static/css/main.bbbe8972.chunk.css",
+    "main.js": "/warble/static/js/main.29e17166.chunk.js",
+    "main.js.map": "/warble/static/js/main.29e17166.chunk.js.map",
     "runtime-main.js": "/warble/static/js/runtime-main.44b09d76.js",
     "runtime-main.js.map": "/warble/static/js/runtime-main.44b09d76.js.map",
     "static/js/2.ec064d20.chunk.js": "/warble/static/js/2.ec064d20.chunk.js",
     "static/js/2.ec064d20.chunk.js.map": "/warble/static/js/2.ec064d20.chunk.js.map",
     "index.html": "/warble/index.html",
-    "precache-manifest.23d9da11cbae5c33cfe42bf5f04793d6.js": "/warble/precache-manifest.23d9da11cbae5c33cfe42bf5f04793d6.js",
+    "precache-manifest.44ae7a3cbf066e76cec7b5e52405f877.js": "/warble/precache-manifest.44ae7a3cbf066e76cec7b5e52405f877.js",
     "service-worker.js": "/warble/service-worker.js",
-    "static/css/main.9b3b33bb.chunk.css.map": "/warble/static/css/main.9b3b33bb.chunk.css.map",
+    "static/css/main.bbbe8972.chunk.css.map": "/warble/static/css/main.bbbe8972.chunk.css.map",
     "static/js/2.ec064d20.chunk.js.LICENSE.txt": "/warble/static/js/2.ec064d20.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.44b09d76.js",
     "static/js/2.ec064d20.chunk.js",
-    "static/css/main.9b3b33bb.chunk.css",
-    "static/js/main.7f3a7abd.chunk.js"
+    "static/css/main.bbbe8972.chunk.css",
+    "static/js/main.29e17166.chunk.js"
   ]
 }

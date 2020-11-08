@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64736d25cf9d18dfa4eea1c2ad9e8f00",
+    "revision": "15d551895a1b678e52ca7643a660fbc1",
     "url": "/warble/index.html"
   },
   {
-    "revision": "f3ea3570805285b8a8f5",
-    "url": "/warble/static/css/main.9b3b33bb.chunk.css"
+    "revision": "cb4a5363b9ffe181e092",
+    "url": "/warble/static/css/main.bbbe8972.chunk.css"
   },
   {
     "revision": "dbeb23d90ababbcde523",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/warble/static/js/2.ec064d20.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f3ea3570805285b8a8f5",
-    "url": "/warble/static/js/main.7f3a7abd.chunk.js"
+    "revision": "cb4a5363b9ffe181e092",
+    "url": "/warble/static/js/main.29e17166.chunk.js"
   },
   {
     "revision": "9b402824ec5682bc1c3e",
