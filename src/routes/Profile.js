@@ -1,15 +1,15 @@
-import { authService, dbService } from "fbase"
+import { authService, dbService, FIRESTORE_DB_COLLECTION_NAME } from "fbase"
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { getAttachmentUrl } from "../utils/fbase"
-import Nweet from "components/Nweet"
+import Warble from "components/Warble"
 import FileModule from "../components/FileModule"
 
 const Profile = ({ userObj, refreshUser }) => {
   const history = useHistory()
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName)
   const [attachment, setAttachment] = useState("")
-  const [myNweets, setMyNweets] = useState([])
+  const [myWarbles, setMyWarbles] = useState([])
   const [isShowEditProfile, setIsShowEditProfile] = useState(false)
 
   const onLogOutClick = () => {
@@ -46,19 +46,19 @@ const Profile = ({ userObj, refreshUser }) => {
     refreshUser() // update user for react dom
   }
 
-  const getMyNweets = async () => {
-    const nweets = await dbService
-                        .collection("nweets")
+  const getMyWarbles = async () => {
+    const warbles = await dbService
+                        .collection(FIRESTORE_DB_COLLECTION_NAME)
                         .where("creatorId", "==", userObj.uid)
                         .orderBy("createdAt", "desc")
                         .get()
 
-    const myNweetArray = nweets.docs.map(doc => ({
+    const myWarbleArray = warbles.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
     }))
 
-    setMyNweets(myNweetArray)
+    setMyWarbles(myWarbleArray)
   }
 
   const toggleEditProfile = () => {
@@ -68,9 +68,9 @@ const Profile = ({ userObj, refreshUser }) => {
   useEffect(() => {
     let isMounted = true
 
-    dbService.collection("nweets").onSnapshot(() => { 
+    dbService.collection(FIRESTORE_DB_COLLECTION_NAME).onSnapshot(() => { 
       if(isMounted) {
-        getMyNweets()
+        getMyWarbles()
       }
     })
 
@@ -111,19 +111,19 @@ const Profile = ({ userObj, refreshUser }) => {
           </form>
         </>
       )}
-      <div className="profile__my-nweets">
-        <h1>My nweets</h1>
-        <div className="profile__my-nweets-contents">
-          {(myNweets.length > 0) ? (
-            myNweets.map(nweet => (
-              <Nweet 
-                key={nweet.id} 
-                nweetObj={nweet} 
-                isOwner={nweet.creatorId === userObj.uid} 
+      <div className="profile__my-warbles">
+        <h1>My warbles</h1>
+        <div className="profile__my-warbles-contents">
+          {(myWarbles.length > 0) ? (
+            myWarbles.map(warble => (
+              <Warble 
+                key={warble.id} 
+                warbleObj={warble} 
+                isOwner={warble.creatorId === userObj.uid} 
               />
             ))
           ) : (
-            <div className="profile__my-nweets-loading">loading...</div>
+            <div className="profile__my-warbles-loading">loading...</div>
           )}
         </div>
       </div>

@@ -22,22 +22,22 @@
   margin-top: 10px;
 }
 
-.profile__my-nweets {
+.profile__my-warbles {
   border-top: 1px solid #04aaff;
   margin-top: 10px;
   padding-top: 10px;
 }
 
-.profile__my-nweets > h1 {
+.profile__my-warbles > h1 {
   text-align: center;
   color: #04aaff
 }
 
-.profile__my-nweets-contents {
+.profile__my-warbles-contents {
   margin-top: 30px;
 }
 
-.profile__my-nweets-loading {
+.profile__my-warbles-loading {
   text-align: center;
 }
 

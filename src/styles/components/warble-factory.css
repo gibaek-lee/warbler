@@ -1,11 +1,11 @@
-.nweet-factory-form {
+.warble-factory-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.nweet-factory-form__container {
+.warble-factory-form__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.nweet-factory-form__input-text {
+.warble-factory-form__input-text {
   flex-grow: 1;
   height: 40px;
   padding: 0px 20px;
@@ -26,7 +26,7 @@
   font-size: 12px;
 }
 
-.nweet-factory-form__submit {
+.warble-factory-form__submit {
   position: absolute;
   right: 0;
   height: 40px;
@@ -37,6 +37,6 @@
   color: white;
 }
 
-.nweet-factory-form__submit:hover {
+.warble-factory-form__submit:hover {
   cursor: pointer;
 }

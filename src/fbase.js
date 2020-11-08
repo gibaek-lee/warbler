@@ -18,4 +18,5 @@ firebase.initializeApp(firebaseConfig)
 export const firebaseInstance = firebase
 export const authService = firebase.auth()
 export const dbService = firebase.firestore()
+export const FIRESTORE_DB_COLLECTION_NAME = "nweets" // -> change to warbles 
 export const storageService = firebase.storage()

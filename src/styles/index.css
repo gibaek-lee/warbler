@@ -1,7 +1,7 @@
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 @import "./components/auth-form.css";
-@import "./components/nweet-factory.css";
-@import "./components/nweet.css";
+@import "./components/warble-factory.css";
+@import "./components/warble.css";
 @import "./components/navigation.css";
 @import "./components/router.css";
 @import "./components/app.css";

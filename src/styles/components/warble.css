@@ -1,4 +1,4 @@
-.nweet {
+.warble {
   margin-bottom: 20px;
   background-color: white;
   width: 100%;
@@ -11,34 +11,34 @@
   color: rgba(0, 0, 0, 0.8); 
 }
 
-.nweet.mode-edit {
+.warble.mode-edit {
   flex-direction: column;
 }
 
-.nweet:hover .nweet-me {
+.warble:hover .warble-me {
   display: none;
 }
 
-.nweet:hover .nweet-actions {
+.warble:hover .warble-actions {
   display: block;
 }
 
-.nweet img, svg {
+.warble img, svg {
   border-radius: 50%;
 }
 
-.nweet h4 {
+.warble h4 {
   font-size: 14px;
   margin-left: 10px;
 }
 
-.nweet-form--submit {
+.warble-form--submit {
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.nweet-me {
+.warble-me {
   display: block;
   position: absolute;
   right: 10px;
@@ -47,16 +47,16 @@
   color: #fff;
 }
 
-.nweet-actions {
+.warble-actions {
   display: none;
   position: absolute;
   right: 10px;
 }
 
-.nweet-actions > span {
+.warble-actions > span {
   cursor: pointer;  
 }
 
-.nweet-actions > span:first-of-type {
+.warble-actions > span:first-of-type {
   margin-right: 10px;
 }

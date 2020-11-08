@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
-const Nweet = ({nweetObj, isOwner}) => {
+const Warble = ({warbleObj, isOwner}) => {
   const [editing, setEditing] = useState(false)
-  const [newNweet, setNewNweet] = useState(nweetObj.text)
+  const [newWarble, setNewWarble] = useState(warbleObj.text)
   
   const onDeleteCilck = async () => {
-    const ok = window.confirm("Are you sure you want to delete this nweet?")
+    const ok = window.confirm("Are you sure you want to delete this warble?")
     if (ok) {
-      await dbService.doc(`nweets/${nweetObj.id}`).delete()
+      await dbService.doc(`warbles/${warbleObj.id}`).delete()
       
-      if (nweetObj.attachmentUrl) { // 이미지 없이 올려진 nweet 제거 시 에러 방지
-        await storageService.refFromURL(nweetObj.attachmentUrl).delete()
+      if (warbleObj.attachmentUrl) { // 이미지 없이 올려진 warble 제거 시 에러 방지
+        await storageService.refFromURL(warbleObj.attachmentUrl).delete()
       }
     }
   }
@@ -23,52 +23,52 @@ const Nweet = ({nweetObj, isOwner}) => {
 
   const onSubmit = async (event) => {
     event.preventDefault()
-    await dbService.doc(`nweets/${nweetObj.id}`).update({text: newNweet})
+    await dbService.doc(`warbles/${warbleObj.id}`).update({text: newWarble})
     setEditing(false)
   }
-  
+
   const onChange = (event) => {
     const {
       target: { value }
     } = event
 
-    setNewNweet(value)
+    setNewWarble(value)
   }
 
   return (
     <div 
-      className={`nweet ${editing ? 'mode-edit' : ''}`}
+      className={`warble ${editing ? 'mode-edit' : ''}`}
     >
       {editing ? (
         <>
           <form 
-            className="nweet-form container"
+            className="warble-form container"
             onSubmit={onSubmit}
           >
             <input
-              className="nweet-form__input form-input"
+              className="warble-form__input form-input"
               type="text" 
-              placeholder="Edit yout nweet" 
-              value={newNweet} 
+              placeholder="Edit yout warble" 
+              value={newWarble} 
               required
               onChange={onChange}
             />
             <input 
-              className="nweet-form--submit form-btn brand-bg-color"
+              className="warble-form--submit form-btn brand-bg-color"
               type="submit" 
-              value="Update Nweet" 
+              value="Update Warble" 
             />
           </form>
           <span 
-            className="nweet-button--cancel form-btn brand-bg-color cancel-btn"
+            className="warble-button--cancel form-btn brand-bg-color cancel-btn"
             onClick={toggleEditing}
           >Cancel</span>
         </>
       ) : (
         <>
-          {nweetObj.attachmentUrl ? (
+          {warbleObj.attachmentUrl ? (
             <img 
-              src={nweetObj.attachmentUrl} 
+              src={warbleObj.attachmentUrl} 
               width="28" 
               height="28" 
               alt="user attachment"
@@ -80,13 +80,13 @@ const Nweet = ({nweetObj, isOwner}) => {
               size="2x"
             />
           )}
-          <h4>{nweetObj.text}</h4>
+          <h4>{warbleObj.text}</h4>
           {isOwner && (
             <>
-              <div className="nweet-me brand-bg-color">
+              <div className="warble-me brand-bg-color">
                 <span>Edit</span>
               </div>
-              <div className="nweet-actions">
+              <div className="warble-actions">
                 <span onClick={onDeleteCilck}><FontAwesomeIcon icon={faTrash} /></span>
                 <span onClick={toggleEditing}><FontAwesomeIcon icon={faPencilAlt} /></span>
               </div>
@@ -98,4 +98,4 @@ const Nweet = ({nweetObj, isOwner}) => {
   )
 }
 
-export default Nweet
+export default Warble

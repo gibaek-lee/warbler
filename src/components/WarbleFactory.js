@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { dbService } from "fbase"
+import { dbService, FIRESTORE_DB_COLLECTION_NAME } from "fbase"
 import { getAttachmentUrl } from "../utils/fbase"
 import FileModule from "./FileModule"
 
-const NweetFactory = ({ userObj }) => {
-  const [nweet, setNweet] = useState("")
+const WarbleFactory = ({ userObj }) => {
+  const [warble, setWarble] = useState("")
   const [attachment, setAttachment] = useState("")
 
   const onSubmit = async (event) => {
-    if(nweet === "") {
+    if(warble === "") {
       return
     }
 
@@ -19,15 +19,15 @@ const NweetFactory = ({ userObj }) => {
       attachmentUrl =  await getAttachmentUrl(userObj, attachment)
     }
 
-    const nweetObj = {
-      text: nweet,
+    const warbleObj = {
+      text: warble,
       createdAt: Date.now(),
       creatorId: userObj.uid,
       attachmentUrl
     }
-    await dbService.collection("nweets").add(nweetObj)
+    await dbService.collection(FIRESTORE_DB_COLLECTION_NAME).add(warbleObj)
 
-    setNweet("")
+    setWarble("")
     setAttachment("")
   }
 
@@ -35,25 +35,25 @@ const NweetFactory = ({ userObj }) => {
     const {
       target: {value}
     } = event
-    setNweet(value)
+    setWarble(value)
   }
 
   return (
     <form 
-      className="nweet-factory-form"
+      className="warble-factory-form"
       onSubmit={onSubmit}
     >
-      <div className="nweet-factory-form__container">
+      <div className="warble-factory-form__container">
         <input
-          className="nweet-factory-form__input-text" 
+          className="warble-factory-form__input-text" 
           type="text" 
           placeholder="What's on yout mind?" 
           maxLength={120} 
           onChange={onChange} 
-          value={nweet}
+          value={warble}
         />
         <input 
-          className="nweet-factory-form__submit brand-bg-color"
+          className="warble-factory-form__submit brand-bg-color"
           type="submit" 
           value="&rarr;"
         />
@@ -66,4 +66,4 @@ const NweetFactory = ({ userObj }) => {
   )
 }
 
-export default NweetFactory
+export default WarbleFactory
