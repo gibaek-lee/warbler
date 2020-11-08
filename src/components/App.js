@@ -20,7 +20,7 @@ function App() {
             user.updateProfile(args)
           }
         } : null)
-        
+
         setInit(true)
       }
     })
@@ -51,7 +51,7 @@ function App() {
       ) : (
         <div className="app__init">Initializing...</div>
       )}
-      <footer className="brand-font-color">&copy Nwitter {new Date().getFullYear()}</footer>
+      <footer className="brand-font-color">&copy Warbler {new Date().getFullYear()}</footer>
     </>
   )
 }

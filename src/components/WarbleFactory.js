@@ -47,7 +47,7 @@ const WarbleFactory = ({ userObj }) => {
         <input
           className="warble-factory-form__input-text" 
           type="text" 
-          placeholder="What's on yout mind?" 
+          placeholder="What's on your mind?" 
           maxLength={120} 
           onChange={onChange} 
           value={warble}

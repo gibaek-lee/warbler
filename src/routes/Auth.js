@@ -22,12 +22,15 @@ const Auth = () => {
 
   return (
     <div className="auth">
-      <FontAwesomeIcon
-        icon={faTwitter}
-        color={"#04AAFF"}
-        size="3x"
-        style={{marginBottom: 30}}
-      />
+      <div className="auth__title">
+        <FontAwesomeIcon
+          icon={faTwitter}
+          color={"#04AAFF"}
+          size="3x"
+          style={{marginBottom: 5}}
+        />
+        <span class="auth__title-name brand-font-color">Warbler ver 1.0</span>
+      </div>
       <AuthForm />
       <div className="auth__social">
         <button 

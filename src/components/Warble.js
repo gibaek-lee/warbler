@@ -48,7 +48,7 @@ const Warble = ({warbleObj, isOwner}) => {
             <input
               className="warble-form__input form-input"
               type="text" 
-              placeholder="Edit yout warble" 
+              placeholder="Edit your warble" 
               value={newWarble} 
               required
               onChange={onChange}
